@@ -2,7 +2,7 @@
 if(isset($_POST['date'])){
   $date = $_POST['date'];
   
-  $dates = getData("written_dates");
+  $dates = $this->getData("written_dates");
   if($dates == null){
     $dates = array();
   }else{
@@ -10,7 +10,7 @@ if(isset($_POST['date'])){
   }
   if(array_search($date, $dates) === false){
     $dates[] = $date;
-    echo saveData("written_dates", json_encode(array_values($dates)));
+    echo $this->saveData("written_dates", json_encode(array_values($dates)));
   }else{
     echo "1";
   }

@@ -9,9 +9,9 @@ if(!isset($entry_date)){
   $today = true;
 }
 
-$entry = getData($entry_date);
+$entry = $this->getData($entry_date);
 if($entry == null && !$today){
-  ser("No Entry", "No diary entry was found on the date " . htmlspecialchars($entry_date));
+  echo ser("No Entry", "No diary entry was found on the date " . htmlspecialchars($entry_date));
 }else{
   $entry = preg_replace("/\[p\](.*?)\[\/p\]/", "<p>$1</p>", $entry);
   $entry = str_replace("<p> </p>", "<br/>", $entry);
@@ -29,7 +29,7 @@ if($entry == null && !$today){
     <div class="diary">
       <div class="paper" style="min-height: 100px;">
         <div class="date"><?php echo date("F j, Y", strtotime($entry_date)) . "<br/>" . date("l", strtotime($entry_date));?></div><br/>
-        <div class="dear">Dear <?php echo htmlspecialchars(getData("name")) ?: "diary";?>,</div>
+        <div class="dear">Dear <?php echo htmlspecialchars($this->getData("name")) ?: "diary";?>,</div>
         <div class="entry"><?php echo $entry;?></div>
       </div>
     </div>

@@ -1,28 +1,30 @@
 <?php
-if(isset($_POST['diary']) && H::csrf()){
+if(isset($_POST['diary']) && CSRF::check()){
   // Set name
-  saveData("name", $_POST['diary']);
+  $this->saveData("name", $_POST['diary']);
 }
 ?>
 <div class="contents">
   <h1>Diary</h1>
   <p style="font-style: italic;margin-bottom: 20px;">Saving memories of your life</p>
-  <p>Choose a date to view it's entry or <?php echo $this->l("/entry", "write for today", true);?></p>
+  <h2>Entries</h2>
+  <p>Choose a date to view it's entry or <?php echo $this->l("/entry", "write today's", "class='btn'");?></p>
   <div class="datepicker" style="margin: 10px auto;"></div>
-  <form action="<?php echo \Lobby::u();?>" method="POST">
-    <p>Want to name your diary ?</p>
-    <?php H::csrf(1);?>
-    <input type="text" name="diary" placeholder="Type name here... (Kitty, John)" value="<?php echo getData("name");?>" />
-    <button class="btn red">Submit</button>
-  </form>
   <?php
   if(isset($_POST['diary'])){
-    sss("Name Set", "Your diary's name has been set.");
+    echo sss("Name Set", "Your diary's name has been set.");
   }
   ?>
+  <h2>Name</h2>
+  <form action="<?php echo \Lobby::u();?>" method="POST">
+    <p>Want to name your diary ?</p>
+    <?php CSRF::getInput();?>
+    <input type="text" name="diary" placeholder="Type name here... (Kitty, John)" value="<?php echo $this->getData("name");?>" />
+    <button class="btn red">Submit</button>
+  </form>
   <script>
   lobby.load(function(){
-    lobby.app.written_dates = <?php echo getData("written_dates") ?: '[]';?>;
+    lobby.app.written_dates = <?php echo $this->getData("written_dates") ?: '[]';?>;
     availableDates = lobby.app.written_dates;
     availableDates.push($.datepicker.formatDate('dd-mm-yy', new Date()));
     
