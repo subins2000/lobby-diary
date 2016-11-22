@@ -16,7 +16,7 @@
 .paper {
   margin: 0;
   display: block;
-  font: 13pt Arial, sans-serif;  
+  font: 13pt Arial, sans-serif;
   line-height: 30px;
   padding-top: 50px;
   padding-left: 10.5%;
@@ -44,7 +44,7 @@
 .paper .entry p:first-child{
   text-indent: 80px;
 }
-.paper:after {  
+.paper:after {
   content: '';
   display: block;
   width: 20px;
@@ -55,19 +55,19 @@
   top: 40px;
   left: 2%;
   z-index: 10;
-  -webkit-box-shadow: 
-    inset 2px 2px 5px rgba(125,125,125,1),  
-    2px 50.1em 5px rgba(255,255,255,1), 0px 50em rgba(125,125,125,.75),  
+  -webkit-box-shadow:
+    inset 2px 2px 5px rgba(125,125,125,1),
+    2px 50.1em 5px rgba(255,255,255,1), 0px 50em rgba(125,125,125,.75),
     2px 90.1em 5px rgba(255,255,255,1), 0px 90em rgba(125,125,125,.5),
     2px 130.1em 5px rgba(255,255,255,1), 0px 130em rgba(125,125,125,.25);
-  -moz-box-shadow: 
-    inset 2px 2px 5px rgba(125,125,125,1),  
-    2px 50.1em 5px rgba(255,255,255,1), 0px 50em rgba(125,125,125,.75),  
+  -moz-box-shadow:
+    inset 2px 2px 5px rgba(125,125,125,1),
+    2px 50.1em 5px rgba(255,255,255,1), 0px 50em rgba(125,125,125,.75),
     2px 90.1em 5px rgba(255,255,255,1), 0px 90em rgba(125,125,125,.5),
     2px 130.1em 5px rgba(255,255,255,1), 0px 130em rgba(125,125,125,.25);
-  box-shadow: 
-    inset 2px 2px 5px rgba(125,125,125,1),  
-    2px 50.1em 5px rgba(255,255,255,1), 0px 50em rgba(125,125,125,.75),  
+  box-shadow:
+    inset 2px 2px 5px rgba(125,125,125,1),
+    2px 50.1em 5px rgba(255,255,255,1), 0px 50em rgba(125,125,125,.75),
     2px 90.1em 5px rgba(255,255,255,1), 0px 90em rgba(125,125,125,.5),
     2px 130.1em 5px rgba(255,255,255,1), 0px 130em rgba(125,125,125,.25);
 }

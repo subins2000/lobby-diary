@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['diary']) && CSRF::check()){
   // Set name
-  $this->saveData("name", $_POST['diary']);
+  $this->data->saveValue("name", $_POST['diary']);
 }
 ?>
 <div class="contents">
@@ -18,16 +18,16 @@ if(isset($_POST['diary']) && CSRF::check()){
   <h2>Name</h2>
   <form action="<?php echo \Lobby::u();?>" method="POST">
     <p>Want to name your diary ?</p>
-    <?php CSRF::getInput();?>
-    <input type="text" name="diary" placeholder="Type name here... (Kitty, John)" value="<?php echo $this->getData("name");?>" />
+    <?php echo CSRF::getInput();?>
+    <input type="text" name="diary" placeholder="Type name here... (Kitty, John)" value="<?php echo $this->data->getValue("name");?>" />
     <button class="btn red">Submit</button>
   </form>
   <script>
   lobby.load(function(){
-    lobby.app.written_dates = <?php echo $this->getData("written_dates") ?: '[]';?>;
+    lobby.app.written_dates = <?php echo $this->data->getValue("written_dates") ?: '[]';?>;
     availableDates = lobby.app.written_dates;
     availableDates.push($.datepicker.formatDate('dd-mm-yy', new Date()));
-    
+
     function available(date) {
       dmy = $.datepicker.formatDate($(".datepicker").datepicker( "option", "dateFormat" ), date);
 
@@ -47,7 +47,7 @@ if(isset($_POST['diary']) && CSRF::check()){
       changeYear: true,
       weekHeader: "Week",
       dayNamesMin: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      
+
       beforeShowDay: available,
       onSelect: function(date){
         if($.datepicker.formatDate($(".datepicker").datepicker("option", "dateFormat"), new Date()) == date){

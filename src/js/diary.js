@@ -1,7 +1,7 @@
 lobby.app.counter = 30;
 lobby.app.saveDiary = function(){
   data = $(".diary .entry").html().replace(/<p(.*?)>(.*?)<\/p>/g, '[p]$2[/p]');
-  
+
   if($(".diary .entry").text() != " Type here... "){
     lobby.app.save(lobby.app.date, data, function(){
       $(".diary .paper").animate({backgroundColor: "rgb(101, 196, 53)"}, 1000, function(){
@@ -10,7 +10,7 @@ lobby.app.saveDiary = function(){
         });
       });
     });
-    lobby.app.ajax("date.php", {date: lobby.app.date});
+    lobby.app.ar("date", {date: lobby.app.date});
   }else{
     alert("Please write something....");
   }

@@ -9,7 +9,7 @@ if(!isset($entry_date)){
   $today = true;
 }
 
-$entry = $this->getData($entry_date);
+$entry = $this->data->getValue($entry_date);
 if($entry == null && !$today){
   echo ser("No Entry", "No diary entry was found on the date " . htmlspecialchars($entry_date));
 }else{
@@ -29,7 +29,7 @@ if($entry == null && !$today){
     <div class="diary">
       <div class="paper" style="min-height: 100px;">
         <div class="date"><?php echo date("F j, Y", strtotime($entry_date)) . "<br/>" . date("l", strtotime($entry_date));?></div><br/>
-        <div class="dear">Dear <?php echo htmlspecialchars($this->getData("name")) ?: "diary";?>,</div>
+        <div class="dear">Dear <?php echo htmlspecialchars($this->data->getValue("name")) ?: "diary";?>,</div>
         <div class="entry"><?php echo $entry;?></div>
       </div>
     </div>

@@ -3,9 +3,9 @@
   "short_description" : "A Journal For Saving Memories of Your Life",
   "category" : "accessories",
   "sub_category" : "tools",
-  "version" : "0.2",
+  "version" : "0.2.1",
   "require": {
-    "lobby": ">=0.7"
+    "lobby": ">=0.9.3"
   },
   "author" : "Subin Siby",
   "author_page" : "http://subinsb.com",
